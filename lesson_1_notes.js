@@ -7,7 +7,7 @@ Engine Status: off
 
 function createCar(make, fuelLevel, engineOn) {
   // To be implemented by you.
-  let raceCar = {
+  return {
     make: make,
     fuelLevel: fuelLevel,
     engineOn: engineOn,
@@ -32,9 +32,8 @@ function createCar(make, fuelLevel, engineOn) {
       }
     },
   };
-  return raceCar;
 }
 
-let raceCar1 = createCar("Jaguar", 0.4, false);
+let jaguar = createCar("Jaguar", 0.4, false);
 
 console.log(raceCar1.make);
