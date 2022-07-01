@@ -36,3 +36,5 @@ function createCar(make, fuelLevel, engineOn) {
 }
 
 let raceCar1 = createCar("Jaguar", 0.4, false);
+
+console.log(raceCar1.make);
