@@ -13,26 +13,37 @@ const RPSGAME = {
   computer: createComputer(),
 
   displayWelcomeMessage() {
-    console.log(`Welcome to Rock, Paper, Scissors!`);
+    console.log(`Welcome to Rock, Paper, Scissors, Lizard, Spock! Have fun!`);
   },
 
   displayGoodbyeMessage() {
-    console.log(`Thanks for playing Rock, Paper, Scissors. Goodbye!`);
+    console.log(
+      `Thanks for playing Rock, Paper, Scissors, Lizard, Spock. Goodbye!`
+    );
   },
 
   displayWinner() {
     let humanMove = this.human.move;
     let computerMove = this.computer.move;
+    let humanWon = WINNING_COMBOS[humanMove].includes(computerMove);
     console.log(`You chose: ${humanMove}`);
     console.log(`Computer chose: ${computerMove}`);
 
-    if (WINNING_COMBOS[humanMove].includes(computerMove)) {
+    if (humanWon) {
+      this.human.score += 1;
       console.log("You win!");
     } else if (humanMove === computerMove) {
+      this.computer.score += 1;
       console.log("It's a tie!");
     } else {
       console.log("Computer wins!");
     }
+  },
+
+  displayScore() {
+    console.log("Scoreboard");
+    console.log("------");
+    console.log(`You: ${this.human.score} Computer: ${this.computer.score}`);
   },
 
   playAgain() {
@@ -46,7 +57,9 @@ const RPSGAME = {
     while (true) {
       this.human.choose();
       this.computer.choose();
+      console.clear();
       this.displayWinner();
+      this.displayScore();
       if (!this.playAgain()) break;
     }
 
@@ -64,7 +77,7 @@ function createPlayer() {
     score: 0,
     choices: Object.keys(WINNING_COMBOS),
 
-    wonGame() {
+    countWin() {
       this.score += 1;
     },
   };
@@ -78,7 +91,7 @@ function createHuman() {
       let choice;
 
       while (true) {
-        console.log("Please choose rock, paper, or scissors:");
+        console.log("Please choose rock, paper, scissors, lizard, or spock:");
         choice = readline.question();
         if (this.choices.includes(choice)) break;
         console.log("Sorry, invalid choice.");
