@@ -1,5 +1,13 @@
 const readline = require(`readline-sync`);
 
+const WINNING_COMBOS = {
+  rock: ["lizard", "scissors"],
+  paper: ["rock", "spock"],
+  scissors: ["paper", "lizard"],
+  lizard: ["spock", "paper"],
+  spock: ["scissors", "rock"],
+};
+
 const RPSGAME = {
   human: createHuman(),
   computer: createComputer(),
@@ -18,11 +26,7 @@ const RPSGAME = {
     console.log(`You chose: ${humanMove}`);
     console.log(`Computer chose: ${computerMove}`);
 
-    if (
-      (humanMove === "rock" && computerMove === "scissors") ||
-      (humanMove === "paper" && computerMove === "rock") ||
-      (humanMove === "scissors" && computerMove === "paper")
-    ) {
+    if (WINNING_COMBOS[humanMove].includes(computerMove)) {
       console.log("You win!");
     } else if (humanMove === computerMove) {
       console.log("It's a tie!");
@@ -52,9 +56,17 @@ const RPSGAME = {
 
 RPSGAME.play();
 
+//
+
 function createPlayer() {
   return {
     move: null,
+    score: 0,
+    choices: Object.keys(WINNING_COMBOS),
+
+    wonGame() {
+      this.score += 1;
+    },
   };
 }
 
@@ -68,7 +80,7 @@ function createHuman() {
       while (true) {
         console.log("Please choose rock, paper, or scissors:");
         choice = readline.question();
-        if (["rock", "paper", "scissors"].includes(choice)) break;
+        if (this.choices.includes(choice)) break;
         console.log("Sorry, invalid choice.");
       }
 
@@ -84,11 +96,22 @@ function createComputer() {
 
   let computerObject = {
     choose() {
-      const choices = ["rock", "paper", "scissors"];
-      let randomIndex = Math.floor(Math.random() * choices.length);
-      this.move = choices[randomIndex];
+      let randomIndex = Math.floor(Math.random() * this.choices.length);
+      this.move = this.choices[randomIndex];
     },
   };
 
   return Object.assign(playerObject, computerObject);
 }
+
+/*
+function createScoreTracker() {
+  const WINNING_COMBOS = {
+    rock: ['lizard', 'scissors'],
+    paper: ['rock', 'spock'],
+    scissors: ['paper', 'lizard'],
+    lizard: ['spock', 'paper'],
+    spock: ['scissors', 'rock']
+  };
+}
+*/
