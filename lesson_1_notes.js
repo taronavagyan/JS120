@@ -5,6 +5,7 @@ Fuel Level: 0.4
 Engine Status: off
 */
 
+/*
 function createCar(make, fuelLevel, engineOn) {
   // To be implemented by you.
   return {
@@ -37,3 +38,17 @@ function createCar(make, fuelLevel, engineOn) {
 let jaguar = createCar("Jaguar", 0.4, false);
 
 console.log(raceCar1.make);
+*/
+
+/*
+let book = {
+  title: "Snow Crash",
+  author: "Neal Stephenson",
+  getDescription() {
+    return self.title + " by " + self.author;
+  },
+};
+
+// desired return value: 'Snow Crash by Neal Stephenson'
+book.getDescription(); // => ReferenceError: title is not defined
+*/
