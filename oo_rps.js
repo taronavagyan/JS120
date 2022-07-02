@@ -43,7 +43,7 @@ const RPSGAME = {
       this.human.choose();
       this.computer.choose();
       this.displayWinner();
-      if (this.playAgain()) break;
+      if (!this.playAgain()) break;
     }
 
     this.displayGoodbyeMessage();
@@ -62,8 +62,6 @@ function createHuman() {
   let playerObject = createPlayer();
 
   let humanObject = {
-    move: null,
-
     choose() {
       let choice;
 
@@ -82,29 +80,15 @@ function createHuman() {
 }
 
 function createComputer() {
-  return {
-    move: null,
+  let playerObject = createPlayer();
 
+  let computerObject = {
     choose() {
       const choices = ["rock", "paper", "scissors"];
       let randomIndex = Math.floor(Math.random() * choices.length);
       this.move = choices[randomIndex];
     },
   };
-}
 
-function createMove() {
-  return {
-    // possible state: type of move (rock, paper, or scissors)
-  };
+  return Object.assign(playerObject, computerObject);
 }
-
-function createRule() {
-  return {
-    // possible state? not clear whether Rules need state
-  };
-}
-
-let compare = function (move1, move2) {
-  // not yet implemented
-};
