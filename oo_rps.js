@@ -12,11 +12,30 @@ const RPSGAME = {
     console.log(`Thanks for playing Rock, Paper, Scissors. Goodbye!`);
   },
 
+  displayWinner() {
+    let humanMove = this.human.move;
+    let computerMove = this.computer.move;
+    console.log(`You chose: ${humanMove}`);
+    console.log(`Computer chose: ${computerMove}`);
+
+    if (
+      (humanMove === "rock" && computerMove === "scissors") ||
+      (humanMove === "paper" && computerMove === "rock") ||
+      (humanMove === "scissors" && computerMove === "paper")
+    ) {
+      console.log("You win!");
+    } else if (humanMove === computerMove) {
+      console.log("It's a tie!");
+    } else {
+      console.log("Computer wins!");
+    }
+  },
+
   play() {
     this.displayWelcomeMessage();
     this.human.choose();
     this.computer.choose();
-    displayWinner();
+    this.displayWinner();
     this.displayGoodbyeMessage();
   },
 };
@@ -40,6 +59,8 @@ function createPlayer(playerType) {
           if (["rock", "paper", "scissors"].includes(choice)) break;
           console.log("Sorry, invalid choice.");
         }
+
+        this.move = choice;
       } else {
         const choices = ["rock", "paper", "scissors"];
         let randomIndex = Math.floor(Math.random() * choices.length);
