@@ -31,11 +31,21 @@ const RPSGAME = {
     }
   },
 
+  playAgain() {
+    console.log("Would you like to play again? (y/n)");
+    let answer = readline.question();
+    return answer.toLowerCase()[0] === "y";
+  },
+
   play() {
     this.displayWelcomeMessage();
-    this.human.choose();
-    this.computer.choose();
-    this.displayWinner();
+    while (true) {
+      this.human.choose();
+      this.computer.choose();
+      this.displayWinner();
+      if (this.playAgain()) break;
+    }
+
     this.displayGoodbyeMessage();
   },
 };
@@ -44,8 +54,6 @@ RPSGAME.play();
 
 function createPlayer(playerType) {
   return {
-    // possible state: player's name?
-    // possible state: player's current move?
     playerType,
     move: null,
 
