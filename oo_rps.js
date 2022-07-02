@@ -63,6 +63,7 @@ const RPSGAME = {
       if (!this.playAgain()) break;
     }
 
+    console.log(this.human.moveHistory);
     this.displayGoodbyeMessage();
   },
 };
@@ -83,10 +84,13 @@ function createPlayer() {
   };
 }
 
+// eslint-disable-next-line max-lines-per-function
 function createHuman() {
   let playerObject = createPlayer();
 
   let humanObject = {
+    moveHistory: [],
+
     choose() {
       let choice;
 
@@ -98,6 +102,11 @@ function createHuman() {
       }
 
       this.move = choice;
+      this.updateMoveHistory(choice);
+    },
+
+    updateMoveHistory(move) {
+      this.moveHistory.push(move);
     },
   };
 
