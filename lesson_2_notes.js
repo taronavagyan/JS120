@@ -20,3 +20,13 @@ console.log(fooA.qux); // undefined
 console.log(fooC.qux); // undefined
 console.log(fooA.hasOwnProperty("qux")); // false
 console.log(fooC.hasOwnProperty("qux")); // false
+
+function assignProperty(obj, prop, value) {
+  while (Object.getPrototypeOf(obj) !== null) {
+    obj = Object.getPrototypeOf(obj);
+    if (obj.hasOwnProperty(prop)) {
+      obj[prop] = value;
+      break;
+    }
+  }
+}
