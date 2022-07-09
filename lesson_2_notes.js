@@ -7,6 +7,7 @@
 // the prototype objects, the function should do nothing. The following code
 // should work as shown:
 
+/*
 let fooA = { bar: 1 };
 let fooB = Object.create(fooA);
 let fooC = Object.create(fooB);
@@ -30,3 +31,4 @@ function assignProperty(obj, prop, value) {
     }
   }
 }
+*/
