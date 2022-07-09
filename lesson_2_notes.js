@@ -54,6 +54,7 @@ let getTurkDescription = turk.getDescription.bind(turk);
 logReturnVal(getTurkDescription);
 */
 
+/*
 const TESgames = {
   titles: ["Arena", "Daggerfall", "Morrowind", "Oblivion", "Skyrim"],
   seriesTitle: "The Elder Scrolls",
@@ -65,3 +66,22 @@ const TESgames = {
 };
 
 TESgames.listGames();
+*/
+
+let foo = {
+  a: 0,
+  incrementA: function () {
+    let self = this;
+    function increment() {
+      self.a += 1;
+    }
+
+    increment();
+  },
+};
+
+foo.incrementA();
+foo.incrementA();
+foo.incrementA();
+
+console.log(foo.a);
