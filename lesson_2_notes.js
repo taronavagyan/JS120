@@ -68,6 +68,7 @@ const TESgames = {
 TESgames.listGames();
 */
 
+/*
 let foo = {
   a: 0,
   incrementA: function () {
@@ -85,3 +86,4 @@ foo.incrementA();
 foo.incrementA();
 
 console.log(foo.a);
+*/
