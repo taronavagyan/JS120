@@ -33,6 +33,7 @@ function assignProperty(obj, prop, value) {
 }
 */
 
+/*
 let turk = {
   firstName: "Christopher",
   lastName: "Turk",
@@ -51,3 +52,17 @@ function logReturnVal(func) {
 
 let getTurkDescription = turk.getDescription.bind(turk);
 logReturnVal(getTurkDescription);
+*/
+
+const TESgames = {
+  titles: ["Arena", "Daggerfall", "Morrowind", "Oblivion", "Skyrim"],
+  seriesTitle: "The Elder Scrolls",
+  listGames: function () {
+    let self = this;
+    this.titles.forEach(function (title) {
+      console.log(self.seriesTitle + ": " + title);
+    });
+  },
+};
+
+TESgames.listGames();
