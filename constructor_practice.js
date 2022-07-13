@@ -53,6 +53,7 @@ if (civic instanceof Car) console.log("I'm a car!");
 
 // PP #3
 
+/*
 function Circle(radius) {
   this.radius = radius;
 }
@@ -68,3 +69,61 @@ let b = new Circle(4);
 console.log(b.area().toFixed(2));
 
 console.log(a.hasOwnProperty("area"));
+*/
+
+// PP #6
+
+/*
+function Ninja() {
+  this.swung = false;
+}
+
+Ninja.prototype.swing = function () {
+  this.swung = true;
+  return this;
+};
+
+let ninjaA = new Ninja();
+let ninjaB = new Ninja();
+
+console.log(ninjaA.swing().swung);
+console.log(ninjaB.swing().swung);
+*/
+
+// PP #7
+
+/*
+let ninjaA;
+
+{
+  const Ninja = function () {
+    this.swung = false;
+  };
+
+  ninjaA = new Ninja();
+}
+
+let ninjaB = new ninjaA.constructor();
+
+console.log(ninjaA.constructor === ninjaB.constructor); // true
+console.log(ninjaB.hasOwnProperty("swung"));
+*/
+
+// PP #8
+
+/*
+function User(first, last) {
+  if (!(this instanceof User)) {
+    return new User(first, last);
+  }
+  this.name = first + " " + last;
+}
+
+let nameA = "Jane Doe";
+let user1 = new User("John", "Doe");
+let user2 = User("John", "Doe");
+
+console.log(nameA); // Jane Doe
+console.log(user1.name); // John Doe
+console.log(user2.name); // John Doe
+*/
