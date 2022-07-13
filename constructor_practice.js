@@ -1,3 +1,4 @@
+/*
 let civicArgs = {
   make: "Honda",
   model: "Civic",
@@ -28,3 +29,27 @@ if (civic instanceof Car) console.log("I'm a car!");
 
 // let lizzy = new Lizard();
 // lizzy.scamper(); // ?
+*/
+
+//
+// Constructor Prototypes
+//
+
+let DogPrototype = {
+  bark() {
+    console.log(this.weight > 20 ? "Woof!" : "Yip!");
+  },
+};
+
+function Dog(name, breed, weight) {
+  Object.setPrototypeOf(this, DogPrototype);
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+}
+
+let maxi = new Dog("Maxi", "German Shepherd", 32);
+let dexter = new Dog("Dexter", "Rottweiler", 50);
+let biggie = new Dog("Biggie", "Whippet", 9);
+
+maxi.bark();
