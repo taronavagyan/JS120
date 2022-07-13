@@ -35,21 +35,18 @@ if (civic instanceof Car) console.log("I'm a car!");
 // Constructor Prototypes
 //
 
-let DogPrototype = {
-  bark() {
-    console.log(this.weight > 20 ? "Woof!" : "Yip!");
-  },
-};
-
 function Dog(name, breed, weight) {
-  Object.setPrototypeOf(this, DogPrototype);
   this.name = name;
   this.breed = breed;
   this.weight = weight;
 }
 
-let maxi = new Dog("Maxi", "German Shepherd", 32);
-let dexter = new Dog("Dexter", "Rottweiler", 50);
-let biggie = new Dog("Biggie", "Whippet", 9);
+Dog.prototype.bark = function () {
+  console.log(this.weight > 20 ? "Woof!" : "Yip!");
+};
 
+let maxi = new Dog("Maxi", "German Shepherd", 32);
 maxi.bark();
+
+let biggie = new Dog("Biggie", "Whippet", 9);
+biggie.bark();
