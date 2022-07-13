@@ -35,18 +35,18 @@ if (civic instanceof Car) console.log("I'm a car!");
 // Constructor Prototypes
 //
 
-function Dog(name, breed, weight) {
-  this.name = name;
-  this.breed = breed;
-  this.weight = weight;
-}
+// function Dog(name, breed, weight) {
+//   this.name = name;
+//   this.breed = breed;
+//   this.weight = weight;
+// }
 
-Dog.prototype.bark = function () {
-  console.log(this.weight > 20 ? "Woof!" : "Yip!");
-};
+// Dog.prototype.bark = function () {
+//   console.log(this.weight > 20 ? "Woof!" : "Yip!");
+// };
 
-let maxi = new Dog("Maxi", "German Shepherd", 32);
-maxi.bark();
+// let maxi = new Dog("Maxi", "German Shepherd", 32);
+// maxi.bark();
 
-let biggie = new Dog("Biggie", "Whippet", 9);
-biggie.bark();
+// let biggie = new Dog("Biggie", "Whippet", 9);
+// biggie.bark();
