@@ -50,3 +50,21 @@ if (civic instanceof Car) console.log("I'm a car!");
 
 // let biggie = new Dog("Biggie", "Whippet", 9);
 // biggie.bark();
+
+// PP #3
+
+function Circle(radius) {
+  this.radius = radius;
+}
+
+Circle.prototype.area = function () {
+  return Math.PI * Math.pow(this.radius, 2);
+};
+
+let a = new Circle(3);
+console.log(a.area().toFixed(2));
+
+let b = new Circle(4);
+console.log(b.area().toFixed(2));
+
+console.log(a.hasOwnProperty("area"));
