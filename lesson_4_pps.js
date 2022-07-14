@@ -54,3 +54,27 @@ console.log(`I am a ${neptune.animal}. My name is ${neptune.name}.`);
 neptune.sleep(); // I am sleeping
 neptune.wake(); // I am awake
 */
+
+// var Animal = {
+//   init: function (type) {
+//     this.type = type;
+//   },
+
+//   breathe: function () {
+//     console.log("I'm breathing");
+//   },
+// };
+
+// var Dog = Object.create(Animal);
+// var Terrier = Object.create(Dog);
+
+// var mammal = Object.create(Animal);
+// console.log(mammal.type);
+// mammal.init("mammal");
+// let reptile = Object.create(Animal);
+// reptile.init("reptile");
+
+// console.log(mammal.type); // "mammal"
+// mammal.breathe(); // "I'm breathing"
+// console.log(reptile.type); // "reptile"
+// reptile.breathe(); // "I'm breathing"
