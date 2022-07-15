@@ -78,3 +78,26 @@ neptune.wake(); // I am awake
 // mammal.breathe(); // "I'm breathing"
 // console.log(reptile.type); // "reptile"
 // reptile.breathe(); // "I'm breathing"
+
+//
+
+// class Greeting {
+//   greet(msg) {
+//     console.log(msg);
+//   }
+// }
+
+// class Hello extends Greeting {
+//   hi() {
+//     this.greet("Hello"); // super.greet("Hello") also works
+//   }
+// }
+
+// class Goodbye extends Greeting {
+//   bye() {
+//     this.greet("Goodbye"); // super.greet("Goodbye") also works
+//   }
+// }
+
+// let goodbye = new Goodbye().bye();
+// let hello = new Hello().hi();
