@@ -40,10 +40,14 @@ function createHuman() {
   return Object.assign(playerObject, humanObject);
 }
 
-const RPSGame = {
-  human: createHuman(),
-  computer: createComputer(),
+// CONSTRUCTORS
 
+function RPSGame() {
+  this.human = createHuman();
+  this.computer = createComputer();
+}
+
+RPSGame.prototype = {
   displayWelcomeMessage() {
     console.log("Welcome to Rock, Paper, Scissors!");
   },
@@ -76,7 +80,6 @@ const RPSGame = {
       console.log("It's a tie");
     }
   },
-
   playAgain() {
     console.log("Would you like to play again? (y/n)");
     let answer = readline.question();
@@ -97,4 +100,5 @@ const RPSGame = {
   },
 };
 
-RPSGame.play();
+let game = new RPSGame();
+game.play();
